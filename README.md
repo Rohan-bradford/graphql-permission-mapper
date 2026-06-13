@@ -21,7 +21,7 @@ roles, and exports a permission matrix.
 ## Quick Start
 
 ```bash
-git clone https://github.com/your-username/graphql-permission-mapper.git
+git clone https://github.com/Rohan-bradford/graphql-permission-mapper.git
 cd graphql-permission-mapper
 python -m venv .venv
 ```
