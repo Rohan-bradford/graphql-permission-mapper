@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "graphql-permission-mapper"
+version = "0.1.0"
+description = "Map GraphQL operations and returned fields across authorization roles."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "GraphQL Permission Mapper contributors" }]
+keywords = ["graphql", "security", "authorization", "permissions", "testing"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Security",
+]
+dependencies = [
+  "httpx>=0.27,<1",
+  "PyYAML>=6.0,<7",
+  "rich>=13.7,<15",
+  "typer>=0.12,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0,<9",
+  "ruff>=0.5,<1",
+]
+
+[project.scripts]
+gql-permission-map = "gql_permission_mapper.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/your-username/graphql-permission-mapper"
+Issues = "https://github.com/your-username/graphql-permission-mapper/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gql_permission_mapper"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
