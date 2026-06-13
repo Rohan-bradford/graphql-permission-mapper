@@ -1,0 +1,101 @@
+{
+  "data": {
+    "__schema": {
+      "queryType": {"name": "Query"},
+      "mutationType": {"name": "Mutation"},
+      "subscriptionType": null,
+      "types": [
+        {
+          "kind": "OBJECT",
+          "name": "Query",
+          "fields": [
+            {
+              "name": "viewer",
+              "args": [],
+              "type": {"kind": "OBJECT", "name": "User", "ofType": null}
+            },
+            {
+              "name": "listApiKeys",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {"kind": "OBJECT", "name": "ApiKey", "ofType": null}
+              }
+            }
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Mutation",
+          "fields": [
+            {
+              "name": "updateBillingSettings",
+              "args": [
+                {
+                  "name": "plan",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {"kind": "SCALAR", "name": "String", "ofType": null}
+                  }
+                }
+              ],
+              "type": {"kind": "OBJECT", "name": "BillingSettings", "ofType": null}
+            },
+            {
+              "name": "deleteWorkspaceInvite",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {"kind": "SCALAR", "name": "ID", "ofType": null}
+                  }
+                }
+              ],
+              "type": {"kind": "OBJECT", "name": "WorkspaceInvite", "ofType": null}
+            }
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "User",
+          "fields": [
+            {"name": "id", "args": [], "type": {"kind": "SCALAR", "name": "ID", "ofType": null}},
+            {"name": "email", "args": [], "type": {"kind": "SCALAR", "name": "String", "ofType": null}}
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ApiKey",
+          "fields": [
+            {"name": "id", "args": [], "type": {"kind": "SCALAR", "name": "ID", "ofType": null}},
+            {"name": "name", "args": [], "type": {"kind": "SCALAR", "name": "String", "ofType": null}},
+            {"name": "token", "args": [], "type": {"kind": "SCALAR", "name": "String", "ofType": null}}
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "BillingSettings",
+          "fields": [
+            {"name": "id", "args": [], "type": {"kind": "SCALAR", "name": "ID", "ofType": null}},
+            {"name": "plan", "args": [], "type": {"kind": "SCALAR", "name": "String", "ofType": null}}
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "WorkspaceInvite",
+          "fields": [
+            {"name": "id", "args": [], "type": {"kind": "SCALAR", "name": "ID", "ofType": null}},
+            {"name": "status", "args": [], "type": {"kind": "SCALAR", "name": "String", "ofType": null}}
+          ]
+        },
+        {"kind": "SCALAR", "name": "ID"},
+        {"kind": "SCALAR", "name": "String"}
+      ]
+    }
+  }
+}
+

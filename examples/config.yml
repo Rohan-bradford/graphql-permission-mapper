@@ -1,0 +1,48 @@
+endpoint: http://127.0.0.1:8765/graphql
+timeout: 5
+
+roles:
+  - name: Viewer
+    headers:
+      X-Demo-Role: viewer
+  - name: Editor
+    headers:
+      X-Demo-Role: editor
+  - name: Admin
+    headers:
+      X-Demo-Role: admin
+
+operations:
+  - name: updateBillingSettings
+    query: |
+      mutation PermissionMapUpdateBillingSettings($plan: String!) {
+        updateBillingSettings(plan: $plan) {
+          id
+          plan
+        }
+      }
+    variables:
+      plan: sandbox
+
+  - name: deleteWorkspaceInvite
+    query: |
+      mutation PermissionMapDeleteWorkspaceInvite($id: ID!) {
+        deleteWorkspaceInvite(id: $id) {
+          id
+          status
+        }
+      }
+    variables:
+      id: demo-invite
+
+  - name: listApiKeys
+    query: |
+      query PermissionMapListApiKeys {
+        listApiKeys {
+          id
+          name
+          token
+        }
+      }
+    variables: {}
+
